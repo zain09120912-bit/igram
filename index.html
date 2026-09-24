@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>آی‌گرام – دانلودر ویدیو، ریلز و عکس اینستاگرام</title>
+
+    <meta name="description" content="با آی‌گرام ویدیو، ریلز، عکس و استوری عمومی اینستاگرام را بدون نصب برنامه و با چند کلیک دانلود کنید.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background: #f7f8fc;
+            color: #202124;
+            line-height: 1.9;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1120px, 92%);
+            margin: auto;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #ececf2;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: 800;
+            color: #6c35d9;
+        }
+
+        .nav-link {
+            color: #555;
+            font-size: 14px;
+            font-weight: 600;
+            transition: .2s;
+        }
+
+        .nav-link:hover {
+            color: #6c35d9;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 75px 0 65px;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(108,53,217,.10), transparent 30%),
+                radial-gradient(circle at 90% 30%, rgba(238,77,137,.10), transparent 30%),
+                #fff;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 7px 16px;
+            border-radius: 30px;
+            background: #f0eaff;
+            color: #6735cf;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(30px, 5vw, 50px);
+            line-height: 1.35;
+            margin-bottom: 18px;
+            color: #19152b;
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: 0 auto 30px;
+            color: #666;
+            font-size: 17px;
+        }
+
+        /* Downloader */
+        .downloader {
+            max-width: 780px;
+            margin: 30px auto 0;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #e7e3f1;
+            border-radius: 18px;
+            box-shadow: 0 15px 45px rgba(38, 24, 80, .10);
+        }
+
+        .input-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .url-input {
+            flex: 1;
+            min-width: 0;
+            height: 58px;
+            border: 1px solid #ddd9e8;
+            border-radius: 12px;
+            padding: 0 18px;
+            font-size: 15px;
+            outline: none;
+            direction: ltr;
+            text-align: left;
+            background: #fafafd;
+        }
+
+        .url-input:focus {
+            border-color: #7542dc;
+            box-shadow: 0 0 0 3px rgba(117,66,220,.10);
+        }
+
+        .download-btn {
+            height: 58px;
+            padding: 0 27px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #7139d5, #a044e8);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .25s ease;
+            white-space: nowrap;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(112,57,213,.25);
+        }
+
+        .message {
+            display: none;
+            margin: 12px 5px 3px;
+            padding: 10px 14px;
+            border-radius: 9px;
+            font-size: 13px;
+            text-align: right;
+        }
+
+        .message.show {
+            display: block;
+            background: #f3efff;
+            color: #6031c5;
+        }
+
+        /* Features */
+        .features {
+            padding: 30px 0 75px;
+            background: #fff;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .feature {
+            padding: 18px 14px;
+            text-align: center;
+            border: 1px solid #eeeaf5;
+            border-radius: 13px;
+            background: #fff;
+        }
+
+        .feature-icon {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 9px;
+            border-radius: 50%;
+            background: #f1ebff;
+            color: #7139d5;
+            font-size: 19px;
+        }
+
+        .feature strong {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .feature span {
+            color: #777;
+            font-size: 12px;
+        }
+
+        /* Main Content */
+        .content-section {
+            padding: 75px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 30px;
+            color: #1e1930;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .intro-box {
+            max-width: 900px;
+            margin: 0 auto 50px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 18px;
+            border: 1px solid #ebe8f2;
+            box-shadow: 0 8px 30px rgba(25, 18, 50, .04);
+        }
+
+        .intro-box h2 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: #251c3d;
+        }
+
+        .intro-box p {
+            color: #606060;
+            font-size: 15px;
+        }
+
+        /* Content Link */
+        .content-link {
+            color: #6735cf;
+            font-weight: 700;
+            border-bottom: 1px solid rgba(103,53,207,.35);
+        }
+
+        .content-link:hover {
+            color: #4e20b8;
+        }
+
+        /* Download Types */
+        .type-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .type-card {
+            background: #fff;
+            border: 1px solid #eae7f0;
+            border-radius: 16px;
+            padding: 25px;
+            transition: .25s ease;
+        }
+
+        .type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(25,18,50,.08);
+            border-color: #d9cef3;
+        }
+
+        .type-number {
+            width: 43px;
+            height: 43px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: #f1ebff;
+            color: #6b35d3;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .type-card h3 {
+            font-size: 18px;
+            margin-bottom: 7px;
+            color: #282033;
+        }
+
+        .type-card p {
+            color: #707070;
+            font-size: 14px;
+        }
+
+        /* How To */
+        .how-section {
+            background: #fff;
+        }
+
+        .steps {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 28px 20px;
+            border: 1px solid #ece9f2;
+            border-radius: 16px;
+            background: #fff;
+        }
+
+        .step-num {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #7139d5;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .step h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 13px;
+            color: #777;
+        }
+
+        /* Benefits */
+        .benefit-section {
+            padding: 75px 0;
+        }
+
+        .benefit-box {
+            max-width: 950px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .benefit {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 19px;
+            background: #fff;
+            border: 1px solid #eae7f0;
+            border-radius: 13px;
+        }
+
+        .check {
+            flex: 0 0 30px;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #eee8ff;
+            color: #6836cf;
+            font-weight: bold;
+        }
+
+        .benefit h3 {
+            font-size: 15px;
+            margin-bottom: 3px;
+        }
+
+        .benefit p {
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background: #fff;
+            padding: 75px 0;
+        }
+
+        .faq {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .faq-item {
+            border: 1px solid #e9e6ef;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .faq-question {
+            width: 100%;
+            border: none;
+            background: #fff;
+            padding: 19px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            text-align: right;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 700;
+            color: #282033;
+        }
+
+        .faq-question span {
+            font-size: 22px;
+            color: #6d39d2;
+            transition: .2s;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .3s ease;
+        }
+
+        .faq-answer p {
+            padding: 0 20px 18px;
+            color: #707070;
+            font-size: 14px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 180px;
+        }
+
+        .faq-item.active .faq-question span {
+            transform: rotate(45deg);
+        }
+
+        /* CTA */
+        .cta {
+            padding: 65px 20px;
+            background: linear-gradient(135deg, #211641, #4c238b);
+            color: #fff;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .cta p {
+            color: #ddd4ef;
+            max-width: 650px;
+            margin: auto auto 25px;
+            font-size: 14px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 13px 28px;
+            border-radius: 10px;
+            background: #fff;
+            color: #52249a;
+            font-weight: 700;
+            transition: .2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #17121f;
+            color: #aaa;
+            text-align: center;
+            padding: 22px 10px;
+            font-size: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 850px) {
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .type-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+
+            .benefit-box {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                min-height: 62px;
+            }
+
+            .nav-link {
+                display: none;
+            }
+
+            .hero {
+                padding: 50px 0;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .input-row {
+                flex-direction: column;
+            }
+
+            .download-btn,
+            .url-input {
+                width: 100%;
+            }
+
+            .feature-grid,
+            .type-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 25px;
+            }
+
+            .intro-box {
+                padding: 22px;
+            }
+
+            .content-section,
+            .benefit-section,
+            .faq-section {
+                padding: 55px 0;
+            }
+
+            .cta h2 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="container navbar">
+
+        <div class="logo">
+            آی‌گرام
+        </div>
+
+        <a href="https://igram.com.in/" class="nav-link">
+            نحوه استفاده
+        </a>
+
+    </div>
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="container hero-content">
+
+        <span class="badge">
+            دانلودر آنلاین اینستاگرام
+        </span>
+
+        <h1>
+            دانلود ویدیو، ریلز و عکس اینستاگرام
+        </h1>
+
+        <p>
+            با آی‌گرام می‌توانید محتوای عمومی اینستاگرام را در چند ثانیه و بدون نصب هیچ برنامه‌ای دانلود کنید.
+            کافیست لینک پست، ریل یا استوری مورد نظر را در کادر زیر قرار دهید تا فایل به‌صورت مستقیم روی گوشی یا کامپیوتر شما ذخیره شود.
+        </p>
+
+
+        <!-- DOWNLOADER -->
+        <div class="downloader">
+
+            <div class="input-row">
+
+                <input
+                    type="text"
+                    id="instagramUrl"
+                    class="url-input"
+                    placeholder="لینک پست، ریل یا عکس اینستاگرام را وارد کنید..."
+                    autocomplete="off"
+                >
+
+                <button
+                    class="download-btn"
+                    onclick="downloadInstagram()">
+                    دانلود
+                </button>
+
+            </div>
+
+            <div id="message" class="message"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FEATURES -->
+<section class="features">
+
+    <div class="container">
+
+        <div class="feature-grid">
+
+            <div class="feature">
+
+                <div class="feature-icon">⚡</div>
+
+                <strong>
+                    استخراج سریع فایل
+                </strong>
+
+                <span>
+                    پردازش سریع لینک
+                </span>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">◈</div>
+
+                <strong>
+                    بدون افت کیفیت
+                </strong>
+
+                <span>
+                    حفظ کیفیت فایل
+                </span>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">📱</div>
+
+                <strong>
+                    سازگار با همه دستگاه‌ها
+                </strong>
+
+                <span>
+                    موبایل و دسکتاپ
+                </span>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">✓</div>
+
+                <strong>
+                    کاملاً رایگان
+                </strong>
+
+                <span>
+                    بدون نیاز به ثبت‌نام
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WHAT IS AIGRAM -->
+<section class="content-section">
+
+    <div class="container">
+
+
+        <div class="intro-box">
+
+            <h2>
+                آی‌گرام چیست؟
+            </h2>
+
+            <p>
+                آی‌گرام یک ابزار آنلاین است که به کاربران اجازه می‌دهد محتوای عمومی اینستاگرام،
+                از جمله ویدیو، عکس، ریل و استوری را تنها با داشتن لینک آن، روی دستگاه خود ذخیره کنند.
+                برای استفاده از
+                <a
+                    href="https://igram.com.in/"
+                    target="_blank"
+                    rel="noopener"
+                    class="content-link">
+                    آی‌گرام
+                </a>
+                کافیست لینک محتوای عمومی اینستاگرام را در ابزار قرار دهید.
+                برخلاف بسیاری از اپلیکیشن‌ها، این ابزار کاملاً تحت‌وب کار می‌کند و نیازی به دانلود یا نصب چیزی نیست.
+            </p>
+
+        </div>
+
+
+        <!-- DOWNLOAD TYPES -->
+
+        <div class="section-title">
+
+            <h2>
+                چه نوع محتوایی قابل دانلود است؟
+            </h2>
+
+            <p>
+                انواع مختلف محتوای عمومی اینستاگرام را از طریق لینک ذخیره کنید.
+            </p>
+
+        </div>
+
+
+        <div class="type-grid">
+
+
+            <div class="type-card">
+
+                <div class="type-number">
+                    01
+                </div>
+
+                <h3>
+                    ویدیوهای اینستاگرام
+                </h3>
+
+                <p>
+                    پست‌های ویدیویی عمومی را با کیفیت مناسب روی دستگاه خود ذخیره کنید.
+                </p>
+
+            </div>
+
+
+            <div class="type-card">
+
+                <div class="type-number">
+                    02
+                </div>
+
+                <h3>
+                    عکس‌های اینستاگرام
+                </h3>
+
+                <p>
+                    تصاویر تکی یا آلبومی را به‌سرعت روی گوشی، تبلت یا کامپیوتر خود ذخیره کنید.
+                </p>
+
+            </div>
+
+
+            <div class="type-card">
+
+                <div class="type-number">
+                    03
+                </div>
+
+                <h3>
+                    استوری‌ها
+                </h3>
+
+                <p>
+                    محتوای عمومی استوری را پیش از پایان مدت نمایش آن روی دستگاه خود نگه دارید.
+                </p>
+
+            </div>
+
+
+            <div class="type-card">
+
+                <div class="type-number">
+                    04
+                </div>
+
+                <h3>
+                    پست‌های چندتایی (کروسل)
+                </h3>
+
+                <p>
+                    عکس‌ها و ویدیوهای موجود در یک پست چندبخشی را در صورت پشتیبانی ابزار دریافت کنید.
+                </p>
+
+            </div>
+
+
+            <div class="type-card">
+
+                <div class="type-number">
+                    05
+                </div>
+
+                <h3>
+                    ریلز
+                </h3>
+
+                <p>
+                    ریلزهای عمومی اینستاگرام را تنها با قرار دادن لینک آن‌ها در کادر دانلود ذخیره کنید.
+                </p>
+
+            </div>
+
+
+            <div class="type-card">
+
+                <div class="type-number">
+                    06
+                </div>
+
+                <h3>
+                    محتوای ویدیویی
+                </h3>
+
+                <p>
+                    محتوای ویدیویی عمومی را بدون ورود به حساب اینستاگرام و از طریق مرورگر دریافت کنید.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HOW TO USE -->
+<section
+    class="content-section how-section"
+    id="how-to">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                چگونه از آی‌گرام استفاده کنیم؟
+            </h2>
+
+            <p>
+                دانلود فایل تنها در چند مرحله ساده انجام می‌شود.
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+
+            <div class="step">
+
+                <div class="step-num">
+                    ۱
+                </div>
+
+                <h3>
+                    کپی کردن لینک
+                </h3>
+
+                <p>
+                    در اپلیکیشن اینستاگرام، روی سه‌نقطه کنار پست بزنید و گزینه «کپی لینک» را انتخاب کنید.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-num">
+                    ۲
+                </div>
+
+                <h3>
+                    جای‌گذاری در ابزار
+                </h3>
+
+                <p>
+                    لینک کپی‌شده را در کادر دانلود بالای صفحه قرار دهید.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-num">
+                    ۳
+                </div>
+
+                <h3>
+                    دانلود فایل
+                </h3>
+
+                <p>
+                    روی دکمه دانلود بزنید تا فایل آماده دریافت شود.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WHY USE -->
+<section class="benefit-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                چرا آی‌گرام را انتخاب کنیم؟
+            </h2>
+
+            <p>
+                یک روش ساده برای ذخیره محتوای عمومی موردنظر شما
+            </p>
+
+        </div>
+
+
+        <div class="benefit-box">
+
+
+            <div class="benefit">
+
+                <div class="check">
+                    ✓
+                </div>
+
+                <div>
+
+                    <h3>
+                        بدون نیاز به نصب
+                    </h3>
+
+                    <p>
+                        همه‌چیز از طریق مرورگر انجام می‌شود و نیازی به نصب اپلیکیشن اضافی ندارید.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="check">
+                    ✓
+                </div>
+
+                <div>
+
+                    <h3>
+                        حریم خصوصی حفظ‌شده
+                    </h3>
+
+                    <p>
+                        برای استفاده از ابزار نیازی به وارد کردن رمز عبور اینستاگرام نیست.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="check">
+                    ✓
+                </div>
+
+                <div>
+
+                    <h3>
+                        سازگار با همه دستگاه‌ها
+                    </h3>
+
+                    <p>
+                        روی اندروید، آیفون، ویندوز، مک و تبلت می‌توانید از ابزار استفاده کنید.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="check">
+                    ✓
+                </div>
+
+                <div>
+
+                    <h3>
+                        رایگان و بدون ثبت‌نام
+                    </h3>
+
+                    <p>
+                        برای استفاده از ابزار به ایجاد حساب کاربری یا ثبت‌نام نیاز ندارید.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FAQ -->
+<section class="faq-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                سوالات متداول
+            </h2>
+
+            <p>
+                پاسخ سوالات رایج درباره دانلود محتوای اینستاگرام
+            </p>
+
+        </div>
+
+
+        <div class="faq">
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    آیا استفاده از آی‌گرام رایگان است؟
+
+                    <span>+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        بله، استفاده از این ابزار برای دانلود محتوای عمومی در نظر گرفته شده و نیازی به ثبت‌نام ندارد.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    آیا نیاز به ثبت‌نام یا ورود دارم؟
+
+                    <span>+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        خیر. برای استفاده از ابزار نیازی به ساخت حساب کاربری یا وارد کردن اطلاعات ورود اینستاگرام ندارید.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    آیا می‌توان از پست‌های خصوصی دانلود کرد؟
+
+                    <span>+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        خیر، این ابزار برای محتوای عمومی طراحی شده است و محتوای خصوصی نباید بدون اجازه صاحب آن دریافت شود.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    آیا کیفیت فایل دانلودشده با اصل آن یکسان است؟
+
+                    <span>+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        کیفیت فایل به نسخه‌ای که از منبع در دسترس است و نحوه پردازش آن بستگی دارد؛ در صورت امکان، کیفیت موجود حفظ می‌شود.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    آیا روی گوشی هم کار می‌کند؟
+
+                    <span>+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        بله، صفحه به‌صورت واکنش‌گرا طراحی شده و می‌توانید از آن روی موبایل، تبلت و کامپیوتر استفاده کنید.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+<section class="cta">
+
+    <h2>
+        لینک اینستاگرام را آماده دارید؟
+    </h2>
+
+    <p>
+        لینک محتوای عمومی موردنظر خود را در کادر دانلود قرار دهید و فرآیند دریافت فایل را شروع کنید.
+    </p>
+
+    <a
+        href="#top"
+        class="cta-btn"
+        onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
+        شروع دانلود
+    </a>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    © 2026 آی‌گرام — استفاده مسئولانه از محتوای عمومی اینستاگرام
+
+</footer>
+
+
+<script>
+
+    /* ==============================
+       DOWNLOAD BUTTON
+    ============================== */
+
+    function downloadInstagram() {
+
+        const input = document.getElementById("instagramUrl");
+        const message = document.getElementById("message");
+
+        const url = input.value.trim();
+
+        message.classList.remove("show");
+
+        if (!url) {
+
+            message.textContent =
+                "لطفاً ابتدا لینک اینستاگرام را وارد کنید.";
+
+            message.classList.add("show");
+
+            return;
+        }
+
+
+        if (!url.includes("instagram.com")) {
+
+            message.textContent =
+                "لطفاً یک لینک معتبر اینستاگرام وارد کنید.";
+
+            message.classList.add("show");
+
+            return;
+        }
+
+
+        message.textContent =
+            "لینک دریافت شد. برای دانلود واقعی، این ابزار باید به سیستم پردازش سمت سرور یا API متصل شود.";
+
+        message.classList.add("show");
+
+    }
+
+
+    /* ==============================
+       ENTER KEY
+    ============================== */
+
+    document
+        .getElementById("instagramUrl")
+        .addEventListener("keydown", function(event) {
+
+            if (event.key === "Enter") {
+
+                downloadInstagram();
+
+            }
+
+        });
+
+
+    /* ==============================
+       FAQ ACCORDION
+    ============================== */
+
+    document
+        .querySelectorAll(".faq-question")
+        .forEach(function(button) {
+
+            button.addEventListener("click", function() {
+
+                const currentItem =
+                    this.parentElement;
+
+
+                document
+                    .querySelectorAll(".faq-item")
+                    .forEach(function(item) {
+
+                        if (item !== currentItem) {
+
+                            item.classList.remove("active");
+
+                        }
+
+                    });
+
+
+                currentItem.classList.toggle("active");
+
+            });
+
+        });
+
+</script>
+
+</body>
+</html>
